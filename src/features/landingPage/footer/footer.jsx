@@ -127,7 +127,7 @@ export function Footer() {
           <div className="flex flex-row items-center ">
             <img src={`assets/logo.png`} className="h-12 rounded-full" />
             <div className="pl-2">
-              <p className="text-sm">ISingoji Services</p>
+              <p className="text-sm">iSingoji Service`S</p>
               <p className="text-xs font-extralight">
                 Our Services, Your Project
               </p>
