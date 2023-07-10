@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+// eslint-disable-next-line no-undef
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -6,14 +7,15 @@ module.exports = {
       colors: {
         primary: "#1A120B",
         secondary: "#3C2A21",
-        tertiary: "#D5CEA3",
-        quarternary: "#E5E5CB",
+        tertiary: "#EFF5F5",
+        quarternary: "#EFF5F5",
         textHightLight: "#950101",
       },
       backgroundImage: {
         formbg: "url('assets/blob.svg')",
         footerbg: "url('assets/footer.svg')",
-        "hero-pattern": "url('assets/contact.png')",
+        landingbg: "url('assets/interior.jpg')",
+
       },
     },
   },

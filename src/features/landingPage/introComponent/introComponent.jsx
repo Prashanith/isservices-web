@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 function IntroComponent() {
   const scroll = () => {
@@ -6,12 +7,17 @@ function IntroComponent() {
     section.scrollIntoView({ behavior: "smooth", block: "start" });
   };
   return (
-    <div className="flex flex-row justify-center items-center px-10 bg-gradient-to-r to-quarternary from-tertiary h-[calc(100vh-75px)]">
-      <img src={"assets/landing.svg"} className="w-1/2 hidden lg:block" />
-      <div>
-        <p className=" text-primary text-6xl font-bold">
-          Our Services, <br />
-          <p className="mt-5 text-5xl text-textHightLight">Your Project</p>
+    <div className="flex flex-row justify-center justify-items-center items-start sm:items-center px-[calc(10vw)] bg-landingbg bg-center bg-cover  h-[calc(100vh-60px)]">
+      {/* <img src={"assets/landing.svg"} className="w-1/2 hidden lg:block" /> */}
+      <motion.div 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{duration:1.5}}
+      className=" mt-[calc(20vh)] sm:mt-0 text-center">
+        <p className=" text-primary text-5xl sm:text-6xl lg:text-8xl font-bold">
+          Our Services<br />
+          <span className="mt-5 text-4xl sm:text-5xl lg:text-7xl text-textHightLight">Your Project</span>
         </p>
         <p className=" text-secondary mt-5 text-lg">
           Building your dreams, one brick at a time.
@@ -20,7 +26,7 @@ function IntroComponent() {
           <br />
           From start to stop, we are with you
         </p>
-        <div className="mt-5 flex flex-row space-x-5">
+        <div className="mt-5 flex flex-row justify-center ">
           <button
             onClick={() => scroll()}
             className="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded-md"
@@ -31,7 +37,7 @@ function IntroComponent() {
             About Us
           </button> */}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

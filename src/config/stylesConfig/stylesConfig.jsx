@@ -1,5 +1,5 @@
 const styleConfig = {
-    'NAV_BAR_HEIGHT':75
+    'NAV_BAR_HEIGHT':60
 }
 
 export default styleConfig;

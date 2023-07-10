@@ -2,15 +2,11 @@ import { TextInput, Button, Group, Box } from "@mantine/core";
 import { useForm, hasLength, matches } from "@mantine/form";
 import React, { useState } from "react";
 import { createRequest } from "../../../services/userServiceRequest";
-import {
-  showNotification,
-  updateNotification,
-} from "@mantine/notifications";
+import { showNotification, updateNotification } from "@mantine/notifications";
+import { motion } from "framer-motion";
 
 function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
-
-
 
   const form = useForm({
     initialValues: {
@@ -29,8 +25,6 @@ function ContactForm() {
   async function submitForm(values) {
     setIsLoading(true);
 
-  
-
     showNotification({
       id: "req",
       title: "Alert",
@@ -46,7 +40,7 @@ function ContactForm() {
     try {
       console.log(values);
       var res = await createRequest(values.name, values.email, values.mobile);
-      const isSuccessful = (res.status == 200);
+      const isSuccessful = res.status == 200;
       console.log(res);
       updateNotification({
         id: "req",
@@ -71,15 +65,28 @@ function ContactForm() {
       id="contactForm"
       className="bg-gradient-to-r to-quarternary from-tertiary min-h-screen flex flex-row justify-center items-center"
     >
-      <div style={{backgroundImage:"url('assets/contact.png')"}} className="hidden lg:block bg-no-repeat w-1/2 bg-center bg-contain py-auto h-screen"></div>
-      <div className="bg-primary rounded-3xl p-8 md:p-12 pt-16 m-6 sm:m-12">
+      <div
+        style={{ backgroundImage: "url('assets/contactbg.svg')" }}
+        className="hidden lg:block bg-no-repeat w-1/2 bg-center bg-contain py-auto h-screen"
+      ></div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.2 }}
+        className="bg-primary rounded-3xl p-8 md:p-12 pt-16 m-6 sm:m-12"
+      >
         <Box sx={{ maxWidth: 380, background: "" }} className="rounded-lg ">
           <div className="text-2xl">
             Have a project? We would love to help.
             <br /> We strive to get the best
           </div>
           <br />
-          <form onSubmit={form.onSubmit((values) =>values==null?{}:submitForm(values))}>
+          <form
+            onSubmit={form.onSubmit((values) =>
+              values == null ? {} : submitForm(values)
+            )}
+          >
             <TextInput
               label="Name"
               placeholder="I am your client"
@@ -114,7 +121,7 @@ function ContactForm() {
             </Group>
           </form>
         </Box>
-      </div>
+      </motion.div>
     </div>
   );
 }

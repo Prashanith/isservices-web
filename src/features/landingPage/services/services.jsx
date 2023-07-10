@@ -36,8 +36,8 @@ function Services() {
   ];
   return (
     <div className="min-h-screen flex justify-center items-start flex-col py-16 m-0 px-[calc(10vw)]">
-      <h1 className="text-textHightLight text-5xl  text-left mx-4 mb-8">
-        OUR SERVICES
+      <h1 className="text-textHightLight text-5xl lg:text-6xl  text-left mb-4 sm:mb-8">
+        Our Services
       </h1>
       <div className="flex flex-wrap justify-center">
         {services.map((service) => (

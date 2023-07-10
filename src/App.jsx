@@ -7,6 +7,7 @@ function App() {
   return (
     <MantineProvider
       theme={{
+        fontFamily: "Ysabeau SC, sans-serif",
         colors: {
           brand: ["#1A120B", "#3C2A21", "#D5CEA3"],
           btnColor: ["#1A120B"],

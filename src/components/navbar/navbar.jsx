@@ -1,22 +1,16 @@
-import { useState } from "react";
-import {
-  createStyles,
-  Header,
-  Group,
-  Container,
-  Burger,
-} from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import { createStyles, Header, Container } from "@mantine/core";
+// import { useDisclosure } from "@mantine/hooks";
 import React from "react";
 import styleConfig from "../../config/stylesConfig/stylesConfig";
 import Logo from "../logo/logo";
+import { motion } from "framer-motion";
 
 const useStyles = createStyles((theme) => ({
   header: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    margin:'auto'
+    margin: "auto",
   },
 
   inner: {
@@ -77,39 +71,45 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export function Navbar({ links }) {
-  const [opened, { toggle }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
-  const { classes, cx } = useStyles();
+export function Navbar() {
+  // const [opened, { toggle }] = useDisclosure(false);
+  // const [active, setActive] = useState(links[0].link);
+  const { classes } = useStyles();
 
-  const items = links.map((link) => (
-    <a
-      key={link.label}
-      href={link.link}
-      className={cx(classes.link, {
-        [classes.linkActive]: active === link.link,
-      })}
-      onClick={(event) => {
-        event.preventDefault();
-        setActive(link.link);
-      }}
-    >
-      {link.label}
-    </a>
-  ));
+  // const items = links.map((link) => (
+  //   <a
+  //     key={link.label}
+  //     href={link.link}
+  //     className={cx(classes.link, {
+  //       [classes.linkActive]: active === link.link,
+  //     })}
+  //     onClick={(event) => {
+  //       event.preventDefault();
+  //       setActive(link.link);
+  //     }}
+  //   >
+  //     {link.label}
+  //   </a>
+  // ));
 
   return (
-    <Header
-      height={styleConfig.NAV_BAR_HEIGHT}
-      className={`${classes.header} bg-gradient-to-r to-quarternary from-tertiary` } 
-      m={0}
-      py={0}
-      px={10}
-      withBorder={true}
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1.5 }}
     >
-      <Container className={classes.inner} m={0} p={0} size="100vw">
-        <Logo />
-        {/* <Burger
+      <Header
+        height={styleConfig.NAV_BAR_HEIGHT}
+        className={`${classes.header} bg-white`}
+        m={0}
+        py={0}
+        px={10}
+        withBorder={true}
+      >
+        <Container className={classes.inner} m={0} p={0} size="100vw">
+          <Logo />
+          {/* <Burger
           opened={opened}
           onClick={toggle}
           size="sm"
@@ -118,7 +118,8 @@ export function Navbar({ links }) {
         <Group className={classes.links} spacing={10} noWrap>
           {items}
         </Group>         */}
-      </Container>
-    </Header>
+        </Container>
+      </Header>
+    </motion.div>
   );
 }

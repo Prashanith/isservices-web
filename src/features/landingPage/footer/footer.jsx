@@ -9,8 +9,8 @@ import {
   IconBrandTwitter,
   IconBrandYoutube,
   IconBrandInstagram,
-  IconWood,
 } from "@tabler/icons";
+import { motion } from "framer-motion";
 import React from "react";
 
 const useStyles = createStyles((theme) => ({
@@ -89,7 +89,6 @@ const useStyles = createStyles((theme) => ({
   title: {
     fontSize: theme.fontSizes.lg,
     fontWeight: 700,
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     marginBottom: theme.spacing.xs / 2,
     color: theme.colorScheme === "dark" ? theme.white : theme.black,
   },
@@ -117,18 +116,31 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
+// const links = [
+//   { link: "string", label: "Home" },
+//   { link: "string", label: "Services" },
+//   { link: "string", label: "Contact" },
+//   { link: "string", label: "About" },
+// ];
+
 export function Footer() {
   const { classes } = useStyles();
 
   return (
-    <footer className={`${classes.footer}`}>
+    <motion.footer
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1.5 }}
+      className={`${classes.footer}`}
+    >
       <Container className={`${classes.inner}`}>
         <div className={classes.logo}>
           <div className="flex flex-row items-center ">
             <img src={`assets/logo.png`} className="h-12 rounded-full" />
             <div className="pl-2">
-              <p className="text-sm">iSingoji Service`S</p>
-              <p className="text-xs font-extralight">
+              <p className="text-sm">iSingoji Services</p>
+              <p className="text-xs font-extralight text-gray-400">
                 Our Services, Your Project
               </p>
             </div>
@@ -166,6 +178,6 @@ export function Footer() {
           </ActionIcon>
         </Group>
       </Container>
-    </footer>
+    </motion.footer>
   );
 }
