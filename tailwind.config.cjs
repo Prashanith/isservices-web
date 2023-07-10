@@ -14,7 +14,7 @@ module.exports = {
       backgroundImage: {
         formbg: "url('assets/blob.svg')",
         footerbg: "url('assets/footer.svg')",
-        landingbg: "url('assets/interior.jpg')",
+        landingbg: "url('/assets/interior.jpg')",
 
       },
     },
