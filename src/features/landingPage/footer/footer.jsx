@@ -17,10 +17,7 @@ const useStyles = createStyles((theme) => ({
   footer: {
     paddingTop: theme.spacing.xl * 2,
     paddingBottom: theme.spacing.xl * 2,
-    backgroundColor:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[6]
-        : theme.colors.gray[0],
+    backgroundColor: "#1A120B",
     borderTop: `1px solid ${
       theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2]
     }`,
@@ -127,38 +124,54 @@ export function Footer() {
   const { classes } = useStyles();
 
   return (
-    <motion.footer
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 1.5 }}
-      className={`${classes.footer}`}
-    >
+    <motion.footer className={`${classes.footer}`}>
       <Container className={`${classes.inner}`}>
         <div className={classes.logo}>
           <div className="flex flex-row items-center ">
             <img src={`assets/logo.png`} className="h-12 rounded-full" />
             <div className="pl-2">
-              <p className="text-sm">iSingoji Services</p>
-              <p className="text-xs font-extralight text-gray-400">
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.5 }}
+                className="text-sm"
+              >
+                iSingoji Services
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.5 }}
+                className="text-xs font-extralight text-gray-400"
+              >
                 Our Services, Your Project
-              </p>
+              </motion.p>
             </div>
           </div>
         </div>
         <div className="flex flex-col justify-start items-start">
-          <a
+          <motion.a
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5 }}
             className="text-sm no-underline hover:underline"
             href="tel:+919866690193"
           >
             9866690193
-          </a>
-          <a
+          </motion.a>
+          <motion.a
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5 }}
             className="text-sm no-underline hover:underline"
             href="mailto:is.singojisaikiran@gmail.com"
           >
             is.singojisaikiran@gmail.com
-          </a>
+          </motion.a>
         </div>
       </Container>
       <Container className={classes.afterFooter}>

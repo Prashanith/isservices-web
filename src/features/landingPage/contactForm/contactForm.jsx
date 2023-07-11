@@ -108,16 +108,9 @@ function ContactForm() {
             <br />
 
             <Group position="right" mt="md">
-              <Button
-                type="submit"
-                variant="filled"
-                radius="xl"
-                size="md"
-                className=" block"
-                color={"yellow"}
-              >
+              <button className=" bg-tertiary text-black font-bold py-2 px-6 rounded-lg mt-5 border-[1px] border-slate-600">
                 Submit
-              </Button>
+              </button>
             </Group>
           </form>
         </Box>

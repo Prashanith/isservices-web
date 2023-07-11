@@ -4,6 +4,7 @@ import ContactForm from "./contactForm/contactForm";
 import { Footer } from "./footer/footer";
 import IntroComponent from "./introComponent/introComponent";
 import Services from "./services/services";
+import SolarWorks from "./solarworks/solarworks";
 
 function LandingPage() {
 
@@ -12,6 +13,7 @@ function LandingPage() {
       <Navbar/>
       <IntroComponent />
       <Services />
+      <SolarWorks/>
       <ContactForm />
       <Footer/>
     </div>
